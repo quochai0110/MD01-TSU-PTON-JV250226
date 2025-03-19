@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        display: inline
+        display: block
+        display: inline-block
+        display: flex
+            + flex_container: phần tử cha
+            + flex_item: phần tử con
+            + 2 trục trong flex-box
+                _main-axis: trục chính
+                    + justify-content: 
+                _cross-axis: trục phụ
+                    + align-item: 
+               ==> 2 trục luôn luôn vuông góc với nhau
+               flex-direction: quyết định vị trí của 2 trục
+               flex-direction: row;
+                ==> main-axis: sẽ nằm ngang
+                ==> cross-axis: sẽ năm dọc
+               flex-direction: column;
+                ==>  main-axis: nằm dọc
+                 ==> cross-axis: sẽ nằm ngang
+    -->
+    <style>
+        .container {
+            display: flex;
+            width: 500px;
+            height: 250px;
+            background-color: #dbdbdb;
+            flex-direction: row;
+            /* justify-content: space-around;
+            align-items: flex-end; */
+            /* align-items: flex-end;
+            justify-content: space-evenly; */
+            
+        }
+        
+        .item{
+           background-color: red;
+           margin: 5px;
+           height: 50px;
+        }
+        .item1{
+            flex: 1;
+        }
+        .item2{
+            flex: 2;
+        }
+        .item3{
+            flex: 3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item item1">item1
+        </div>
+        <div class="item item2">item2</div>
+        <div class="item item3">item3</div>
+    </div>
+</body>
+
+</html>
