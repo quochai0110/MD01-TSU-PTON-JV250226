@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let student = {
+            // thuộc tính
+            // phương thức
+            name: "minh thu",
+            address: "hà nội",
+            say: function sayHello() {
+                console.log("xin chào!");
+            }
+        }
+        /* 
+            Thao tác với object
+            CRUD: 
+            1. C_Create_ Thêm
+            2. R_Read_ Hiển thị
+            3. U_Update_Cập nhật
+            4. D_Delete_Xóa
+        */
+        // khai báo 1 đối tượng nhân viên
+
+        let employee = {
+            id: 111,// thuộc tính_ property
+            name: "hoa",
+            address: "hà nội",
+            // key:123,
+            // name:"hoa@gmail.com",
+            // age:35
+        };
+        // thêm thuộc tính email 
+        employee.email="hoa@gmail.com";
+        employee["age"]=35;
+        for (const key in employee) {
+            // console.log("key",key);
+            console.log(employee[key]);
+        }
+        employee.address="hà nam";
+        delete employee.email;
+        console.log(employee);
+        
+
+    </script>
+</body>
+
+</html>

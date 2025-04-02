@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            2 nhóm kiểu dữ liệu
+            I_ kiểu nguyên thủy, đơn giản, tham trị, primitive_type
+                number
+                string
+                null
+                boolean
+                ...
+            II_kiểu phức tạp, tham chiếu, reference type
+                array
+                object
+                function
+        */
+        let original ={
+            name:"Bob",
+            age:30
+        }
+        let copy= original;// gán original cho copy bản chất gán địa chỉ của original
+        // cho biến copy, cả 2 cùng trỏ đến 1 địa chỉ ô nhớ
+        copy.name="Charlie";
+        console.log("gốc",original);
+        console.log("copy",copy);
+        let a=5;
+        let b=a;// sao chép giá trị của a gán cho b và a và b ở 2 địa chỉ ô nhớ khác 
+        // nhau cho nên khi thay đổi a, b không liên quan
+        a=10;
+        console.log("a",a);
+        
+        console.log("b",b);
+        let student1={
+            name:"hoa",
+            address:"hcm"
+        }
+        // toán tử spreed
+        // clone object trong javascript
+        
+        let student2={...student1};
+        student2.address="hà nội";
+        console.log(student1);
+        
+
+        
+        
+    </script>
+</body>
+</html>

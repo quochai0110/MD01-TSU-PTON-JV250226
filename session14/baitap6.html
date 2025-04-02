@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let books = [];
+        // bài tập 6
+        while (true) {
+            // ``: template string hay literal
+            let choose = +prompt(`
+                --- QUẢN LÝ SÁCH ---
+                    1. Thêm sách mới
+                    2. Hiển thị danh sách sách
+                    3. Tìm kiếm sách theo tên
+                    4. Xóa sách theo ID
+                    5. Thoát chương trình
+                    Nhập lựa chọn của bạn:
+            `)
+            if (choose == 1) {
+                //thực hiện chức năng thêm sách mới
+                console.log("thêm sách");
+                /* 
+                1 quyển sách phải có các thuộc tính
+                Nhập ID, Tên sách, Tác giả, Năm xuất bản.
+                */
+                let id;
+                /* 
+                 nếu mảng ban đầu chưa có phần tử thì gán id =1
+                 nếu có phần tử rồi thì gán id bằng id của phần tử cuối cùng +1
+                */
+                if (books.length == 0) {
+                    id = 1;
+                } else {
+                    id = books[books.length - 1].id + 1;
+                }
+                let bookName = prompt("mời bạn nhập tên sách");
+                let author = prompt("mời bạn nhập tác giả");
+                let year = prompt("mời nhập năm xuất bản");
+                // tạo đối tượng quyển sách
+                let book = {
+                    id: id,
+                    name: bookName,
+                    author: author,
+                    year: year,
+                }
+                // thêm đối tượng vào mảng danh sách
+                books.push(book);
+
+
+            } else if (choose == 2) {
+                //hiển thị danh sách sách
+                for (let i = 0; i < books.length; i++) {
+                    console.log(`quyển sách thứ ${i+1}: 
+                    name_${books[i].name}, 
+                    tác giả_${books[i].author}
+                    `);
+                    
+                }
+
+            } else if(choose==3){
+                // tìm kiếm sách theo tên
+                let searchName=prompt("mời bạn nhập tên sách");
+                let flag=true;
+                for (let i = 0; i < books.length; i++) {
+                   if(books[i].name.includes(searchName)){
+                        console.log("sách bạn muốn tìm",books[i]); 
+                        flag=false;
+                   }
+                }
+                if(flag){
+                    console.log(`không có quyển sách nào có tên là: ${searchName}`);
+                    
+                }
+            }else if(choose==4){
+                // xóa sách theo id
+                let id= +prompt("mời nhập id sách muốn xóa");
+                // let index= books.findIndex(item=>item.id==id)
+                // HOF
+                let flag=true;
+                for (let i = 0; i < books.length; i++) {
+                        if(books[i].id==id){
+                            console.log("sách đã xóa",books[i]);
+                            
+                            books.splice(i,1);
+                            flag=false;
+                            break;
+                        }
+                }
+                if(flag){
+                    console.log("không có sách thỏa mãn id là ",id);
+                    
+                }
+            }
+            else if (choose == 5) {
+                // thoát chương trình 
+                break;
+            }
+            // switch (choose) {
+            //     case 1:
+            //         // thực hiện chức năng thêm sách
+            //         break;
+            //     case 2:
+            //         break;
+            //     default:
+            //         break;
+            // }
+        }
+        let a=3;
+        let b="5";
+        let sum=a+b;
+        console.log(sum);
+        
+    </script>
+</body>
+
+</html>
