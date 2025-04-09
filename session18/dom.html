@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #heading{
+            color: red;
+        }
+        .title{
+            font-size: 80px;
+        }
+    </style>
+</head>
+<body>
+    <h1 >học dom cơ bản!</h1>
+
+    <div class="test">
+
+    </div>
+    <h1> abc</h1>
+    <h1>xyz</h1>
+    <h2 class="title"> javascript</h2>
+    <a href="">about</a>
+    <h4 class="content" id="text">các thành phần cơ bản trong DOM</h4>
+    <script>
+        /* 
+        
+            Khi trang web được tải lên thì trình duyệt sẽ tạo ra một mô hình DOM
+            Nhờ mô hình DOM thì JS có thể thêm sửa xóa, các phần tử HTML, thuộc tính attributes,
+            tạo các sự kiện trên trang HTML...
+            Các thành phần trong DOM
+                3 THÀNH PHẦN
+                1: ELEMENT _ thẻ HTML
+                    Các cách lấy element
+                    1. lấy theo class
+                    2. lấy theo id
+                    3. lấy theo tên thẻ
+                    4. lấy theo thuộc tính khác
+                    Tạo phần tử
+                    document.createElement("h1");
+                2: ATTRIBUTE_ thuộc tính
+                    
+                3. TEXT _ nội dung của thẻ
+                    + innerHTML
+                    + innerText
+        */
+    //    let h1Element= document.getElementsByClassName("title");
+    //    console.log(h1Element);
+    //     document.createElement("h1");
+        // let h1Element= document.getElementsByClassName("title")[0];
+        // h1Element.id="heading";
+        // let student={
+        //     age:20,
+        // }
+        // student.name="minh thu";
+       let h1Element= document.getElementsByTagName("h1")[0];
+        h1Element.id="heading";
+        h1Element.className="title";
+        h1Element.innerText="học dom basic!";
+        document.getElementsByClassName("test")[0].innerHTML="<h1>DOM</h1>"
+    </script>
+</body>
+</html>

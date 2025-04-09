@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">username</label><br>
+    <input type="text"> <br>
+    <label for="">password</label> <br>
+    <input type="text"> <br>
+    <button onclick="login()">đăng nhập </button>
+    <button id="register">register</button>
+    <script>
+        /* 
+        
+            EVENT: sự kiện 
+            I: TƯƠNG TÁC VỚI CHUỘT
+            II: TƯƠNG TÁC VỚI BÀN PHÍM 
+        */
+       function login() {
+        console.log("tiến hành đăng nhập");
+       }
+    //    login();
+    // lấy đối tượng button đăng kí
+    let btn_register= document.getElementById("register");
+    // btn_register.onclick=function(){
+    //     console.log("tiến hành đăng ký!");
+        
+    // }
+    btn_register.addEventListener("click",()=>{
+        console.log("tiến hành việc đăng ký!");
+        
+    })
+
+    document.addEventListener("keyup",(event)=>{
+        console.log(event);
+            if(event.keyCode==13){
+                console.log("thực hiện việc đăng nhập");
+            }
+            
+    })
+
+    </script>
+</body>
+</html>

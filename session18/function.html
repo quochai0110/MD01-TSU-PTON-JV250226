@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            Các loại hàm thường dùng trong JS
+            1. declaration function : hàm bình thường
+            2. expression funciton
+            3. arrow function  : hàm mũi tên
+        */
+       // khai báo hàm đi thêm sinh viên
+        function addStudent(){
+            // thân hàm
+            console.log("tiến hành thêm sinh viên");
+            
+        }
+        // muốn hàm thực thi bắt buộc phải gọi hàm
+        // addStudent();
+       /*  let restult = function sum(){
+             console.log("thực thiện nhiệm vụ tính tổng");
+        }
+        restult(); */
+        let result= () =>console.log("hàm arrow function!");
+        
+        result();
+        /* 
+            tham số, đối số trong hàm: giúp hàm có khả năng tái sử dụng.
+            tham số : parameter: khai báo hàm , khai báo tham số
+            đối số: argument : khi gọi hàm truyền giá trị
+        */
+       function tinhTong(numberA, numberB) {
+            console.log(numberA+numberB);
+            
+       }
+    //    tinhTong(3,5);
+    //    tinhTong(4,15);
+       function isEven(number) {
+            if(number%2==0){
+                console.log("số chẵn!");
+            }else{
+                console.log("số lẻ!");
+            }
+       }
+       isEven(5);
+       isEven(6);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border: 1px solid black;
+            height: 400px;
+        }
+        .form{
+            border: 1px solid black;
+            width: 300px;
+            position: relative;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: white;
+        }
+        span{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+        #heading{
+            background-color: rgba(176, 179, 182, 0.4);
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+            <h1>modal example!</h1>
+            <button onclick="openModal()">open modal</button>
+            <div class="form" style="display: none;">
+                <p> some text in the model </p>
+                <span>X</span>
+            </div>
+        </div>
+        <script>
+            function openModal() {
+                    document.getElementsByClassName("form")[0].style.display="block";
+                    document.getElementsByClassName("container")[0].id="heading";
+            }
+        </script>
+</body>
+</html>

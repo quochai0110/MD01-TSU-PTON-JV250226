@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        input{
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Quản lý sinh viên</h1>
+    <input type="text" class="name" placeholder="nhập tên sinh viên">
+    <input type="text" class="age" placeholder="nhập tuổi"> <br>
+    <input type="text" class="class_name" placeholder="nhập lớp">
+    <button class="btn btn-primary" onclick="addStudent()">thêm sinh viên</button> <br>
+     <input type="text" id="search" placeholder="tìm kiếm" oninput="search()">
+     <table border="1">
+        <thead>
+            <tr>
+                <th>Tên</th>
+                <th>Tuổi</th>
+                <th>Lớp</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+           
+        </tbody>
+     </table>
+     <script>
+        // tạo mảng sinh viên để lưu danh sách các sinh viên
+        let students=[];
+        // function đi thêm sinh viên
+        function addStudent() {
+           let studentName= document.getElementsByClassName("name")[0].value;
+           let age= document.getElementsByClassName("age")[0].value;
+           let className= document.getElementsByClassName("class_name")[0].value;
+           console.log("studentName",studentName);
+           console.log("age",age);
+           console.log("className",className);
+           let student={
+             name:studentName,
+             age:age,
+             class:className,
+           }
+           students.push(student);
+           // gọi lại hàm render để cập nhật lại giao diện
+           renderStudent(students);
+          
+        }
+        // tạo hàm hiển thị danh sách sinh viên
+        function renderStudent(arr) {
+            let str="";
+            for (let i = 0; i < arr.length; i++) {
+                str+=
+                `
+                     <tr>
+                        <td>${arr[i].name} </td>
+                        <td>${arr[i].age}</td>
+                        <td>${arr[i].class}</td>
+                        <td>
+                            <button class="btn btn-warning">Sửa</button>
+                            <button class="btn btn-danger" onclick=deleteStudent(${i})>Xóa</button>
+                        </td>
+                    </tr>
+                `
+            }
+            document.getElementById("tbody").innerHTML=str;
+        }
+        // tạo function đi xóa sinh viên
+        function deleteStudent(index) {
+                // console.log("index",index);
+                students.splice(index,1);
+                // gọi lại hàm render để cập nhật giao diện 
+                renderStudent(students);
+        }
+        // function tìm kiếm sinh viên
+        function search() {
+            // lấy giá trị người dùng nhập vào ô input
+            let searchValue= document.getElementById("search").value;
+            let result= students.filter(item=>{
+                return item.name.includes(searchValue);
+            })
+            console.log("result",result);
+            
+            renderStudent(result);
+        }
+       
+        let arrr=[
+            {
+                name:"lê minh thu",
+                class:"A1"
+            },
+            {
+                name:"trịnh hoài phương",
+                class:"A1"
+            },
+            {
+                name:"lê văn anh",
+                class:"A1"
+            }
+        ]
+     </script>
+</body>
+</html>
