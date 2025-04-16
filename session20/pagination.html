@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pages{
+            display: flex;
+
+        }
+        .pages li{
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+            list-style: none;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1> danh sách phần tử</h1>
+    <ul class="items">
+        <!-- <li>item 1</li>
+        <li>item 2</li> -->
+
+    </ul>
+    danh sách các trang
+    <ul class="pages">
+        <!-- <li>1</li>
+        <li>1</li>
+        <li>1</li> -->
+    </ul>
+    <script>
+        let numbers=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
+        // 1 trang có bao nhiêu phần tử
+        let itemsPerPage=4;
+        // xác định tổng số trang
+        let totalPages= Math.ceil(numbers.length/itemsPerPage);//5
+        // tạo hàm hiển thị tổng số trang
+        // khởi tạo trang hiện tại là trang 1
+        let currentPage=1;
+        // tạo 2 biến để cắt dữ liệu theo các trang hiện tại
+        let start=0;
+        let end=4;
+        // hàm đi tính toán start và end theo trang hiện tại
+        function startEnd(current_page) {
+            start= (currentPage-1)*itemsPerPage;//0 , 3
+            end= currentPage*itemsPerPage // 3 // 6
+        }
+        // tạo hàm render tất cả phần tử 
+        function renderItems() {
+            let str="";
+            for (let i = 0; i < numbers.length; i++) {
+                if(i>=start&& i<end){
+                     str+=`<li>item ${numbers[i]}</li>`
+                }
+            }
+            document.getElementsByClassName("items")[0].innerHTML=str;
+
+        }
+        renderItems();
+        function renderPage(){
+            let str="";
+            for (let i = 0; i < totalPages; i++) {
+                str+=`
+                    <li onclick=choosePage(${i+1})>${i+1}</li>
+                `
+            }
+            document.getElementsByClassName("pages")[0].innerHTML=str;
+        }
+        renderPage();
+        // function chọn từng trang
+        function choosePage(index) {
+            console.log("index",index);
+            currentPage=index;
+            startEnd(index);
+            renderItems();
+        }
+
+        
+    </script>
+</body>
+</html>

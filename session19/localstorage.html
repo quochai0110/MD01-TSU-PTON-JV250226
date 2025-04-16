@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        localstorage? 
+            là loại lưu trữ dữ liệu cục bộ trong trình duyệt web.
+            CÁC CÁCH THAO TÁC DỮ LIỆU VỚI LOCALSTORAGE
+            1. lưu
+                localstorage.setItem("key_name",giá trị cần lưu).
+                lưu ý khi lưu dữ liệu mảng hoặc object thì phải chuyển định dạng
+                JSON trước khi lưu.
+                CÚ PHÁP CHUYỂN SANG ĐỊNH DẠNG JSON
+                JSON.stringify(student)
+            2. lấy dữ liệu
+                localstorage.getItem("tên_key");
+                + có tên key ==> giá trị
+                + không có tên key==> null
+                ==> giá trị sẽ ở định dạng JSON
+                ==> chuyển về đúng định dạng: JSON.parse(giá trị);
+            3. xóa dữ liệu
+              xóa từng key: localstorage.removeItem("tên_key")
+              xóa hết : localstorage.clear();
+    -->
+    <script>
+        // lưu tên đầy đủ của 1 người lên trên localstorage
+        let fullName="Lê Minh Thu";
+        localStorage.setItem("fullName",fullName);
+        // có mảng danh sách sinh viên
+        // let students=[
+        //     {
+        //         id:1,
+        //         name:"hoa",
+        //         address:"hn"
+        //     },
+        //     {
+        //         id:2,
+        //         name:"hồng",
+        //         address:"hcm"
+        //     },
+        //     {
+        //         id:3,
+        //         name:"thu",
+        //         address:"hn"
+        //     }
+        // ]
+        // // lưu dữ liệu
+        // localStorage.setItem("students",JSON.stringify(students));
+        let students= JSON.parse(localStorage.getItem("students"));
+        console.log("STUDENTS",students);
+        // localStorage.removeItem("age");
+        // localStorage.clear();
+        
+    </script>
+</body>
+
+</html>
